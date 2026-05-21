@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		anim.play("idle")
 		
-		#fddpdkfvbkjnsmodfsjnamonj
-		#qwdewjdefdwkpefjvoipqwefvuoidpqdlc
+		
 		
 		
