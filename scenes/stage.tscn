@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btnwcoshqyq3m"]
+[gd_scene format=3 uid="uid://btnwcoshqyq3m"]
 
 [ext_resource type="Texture2D" uid="uid://jwlk7gewjoag" path="res://resources/depression_stage_png.png" id="1_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://dyeve2eak7pwa" path="res://scenes/player.tscn" id="1_8rem4"]
@@ -15,81 +15,81 @@ size = Vector2(1905.2505, 1135.2504)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2so7o"]
 size = Vector2(174, 153)
 
-[node name="Stage" type="Node2D"]
+[node name="Stage" type="Node2D" unique_id=285106437]
 y_sort_enabled = true
 
-[node name="player" parent="." instance=ExtResource("1_8rem4")]
+[node name="player" parent="." unique_id=2024073298 instance=ExtResource("1_8rem4")]
 position = Vector2(71, 932)
 
-[node name="tear_bullet" parent="." instance=ExtResource("2_gi7kc")]
+[node name="tear_bullet" parent="." unique_id=669919041 instance=ExtResource("2_gi7kc")]
 position = Vector2(151, 447.00003)
 
-[node name="depression_stage" type="Node2D" parent="."]
+[node name="depression_stage" type="Node2D" parent="." unique_id=103876089]
 
-[node name="background_depression" type="Node2D" parent="depression_stage"]
+[node name="background_depression" type="Node2D" parent="depression_stage" unique_id=238924485]
 z_index = -999
 scale = Vector2(5, 5)
 
-[node name="DepressionStagePng" type="Sprite2D" parent="depression_stage/background_depression"]
+[node name="DepressionStagePng" type="Sprite2D" parent="depression_stage/background_depression" unique_id=69631852]
 texture = ExtResource("1_6c5u0")
 
-[node name="Area2D" type="Area2D" parent="depression_stage"]
+[node name="Area2D" type="Area2D" parent="depression_stage" unique_id=608839361]
 scale = Vector2(4.9999995, 4.9999995)
 
-[node name="depression_boss" parent="depression_stage/Area2D" instance=ExtResource("3_kewym")]
+[node name="depression_boss" parent="depression_stage/Area2D" unique_id=1494247430 instance=ExtResource("3_kewym")]
 position = Vector2(21.400026, -195.60011)
 scale = Vector2(0.020000001, 0.020000001)
 
-[node name="map borders" type="CharacterBody2D" parent="depression_stage/Area2D/depression_boss"]
+[node name="map borders" type="CharacterBody2D" parent="depression_stage/Area2D/depression_boss" unique_id=1250858563]
 position = Vector2(-1070.0013, 9780.006)
 scale = Vector2(10, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=1412851657]
 position = Vector2(-455.00003, 319.00006)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_vcsse")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=282308692]
 position = Vector2(-698.0001, 884.00006)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_vcsse")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=950526686]
 position = Vector2(101.00001, 1441.0001)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_vcsse")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=1765459350]
 position = Vector2(842, 873.0001)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_vcsse")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=922298312]
 position = Vector2(609, 320.00003)
 scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_vcsse")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=933717278]
 position = Vector2(-1766, -560)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_6c5u0")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=1208029953]
 position = Vector2(1987, -560)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_6c5u0")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="depression_stage/Area2D/depression_boss/map borders" unique_id=2037100731]
 position = Vector2(119, -1700)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_6c5u0")
 
-[node name="Timer" type="Timer" parent="depression_stage/Area2D"]
+[node name="Timer" type="Timer" parent="depression_stage/Area2D" unique_id=416414115]
 process_callback = 0
 wait_time = 5.0
 script = ExtResource("2_vcsse")
 
-[node name="boss_tigger" type="CollisionShape2D" parent="depression_stage/Area2D"]
+[node name="boss_tigger" type="CollisionShape2D" parent="depression_stage/Area2D" unique_id=1839926533]
 position = Vector2(15.400002, -15.000001)
 scale = Vector2(0.20000002, 0.20000002)
 shape = SubResource("RectangleShape2D_2so7o")
