@@ -41,5 +41,6 @@ func _physics_process(delta: float) -> void:
 		anim.play("idle")
 		
 		#fddpdkfvbkjnsmodfsjnamonj
+		#qwdewjdefdwkpefjvoipqwefvuoidpqdlc
 		
 		
