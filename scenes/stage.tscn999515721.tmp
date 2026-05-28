@@ -23,6 +23,7 @@ position = Vector2(71, 932)
 
 [node name="tear_bullet" parent="." unique_id=2081860566 instance=ExtResource("2_gi7kc")]
 position = Vector2(151, 447.00003)
+speed = 1500
 range = 1600
 
 [node name="depression_stage" type="Node2D" parent="." unique_id=990208556]

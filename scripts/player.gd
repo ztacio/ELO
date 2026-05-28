@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 150
+@export var speed: float = 300
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var health = 3 
@@ -39,9 +39,3 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		anim.play("idle")
-
-
-
-
-#ragebait
-#123
