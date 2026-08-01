@@ -1,19 +1,20 @@
 extends CharacterBody2D
 
+#TODO: implement movement, damage, dodging logic into state machine
+
 @export var speed: float = 150
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_component = $HealthComponent
 
-var health = 3 
+func take_damage(damage: int):
+	health_component.curr_health -= damage
 
-func take_damage():
-	health -= 1
-	print(health)
-	if health == 0:
-		queue_free()
+func die() -> void:
+	SceneManager.change(SceneManager.GAME_OVER)
 
 var last_direction := "down"
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	if input_vector != Vector2.ZERO:

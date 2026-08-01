@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cfall58ts7lbx"]
+
+[ext_resource type="Script" uid="uid://doy0u27s5abbj" path="res://Sedfrey/Components/health_component.gd" id="1_u3ia8"]
+[ext_resource type="Script" uid="uid://bbj7roxuiggfu" path="res://Sedfrey/Components/progress_bar.gd" id="2_4yuwm"]
+
+[node name="HealthComponent" type="Node" unique_id=83070045]
+script = ExtResource("1_u3ia8")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=474314886]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("2_4yuwm")

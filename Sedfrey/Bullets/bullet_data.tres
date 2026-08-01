@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://b2jsbqbs28tt2"]
+
+[ext_resource type="Script" uid="uid://cr8h5bvvbeqji" path="res://Sedfrey/Bullets/bullet_data.gd" id="1_7nsnk"]
+
+[resource]
+script = ExtResource("1_7nsnk")
+speed = 100.0
+damage = 1.0
+kill_time = 10.0
+target = 2
