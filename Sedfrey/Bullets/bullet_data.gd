@@ -5,5 +5,6 @@ class_name BulletData extends Resource
 @export var damage: float
 @export var kill_time: float
 @export var target: TargetType
+@export var knockback: float
 
-enum TargetType { ENVIRONMENT, INTERACTABLE, PLAYER, BOSS }
+enum TargetType { ENVIRONMENT, BULLET, PLAYER, BOSS }

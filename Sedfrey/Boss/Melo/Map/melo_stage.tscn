@@ -3892,6 +3892,8 @@ position = Vector2(-5, -1475)
 
 [node name="BossTrigger" type="Area2D" parent="." unique_id=1141498417]
 position = Vector2(-581, -699)
+collision_layer = 16
+collision_mask = 4
 
 [node name="BossTriggerCollider" type="CollisionShape2D" parent="BossTrigger" unique_id=2135505870]
 position = Vector2(588, -9)
@@ -3899,5 +3901,6 @@ shape = SubResource("RectangleShape2D_infu2")
 
 [node name="player" parent="." unique_id=311169238 instance=ExtResource("13_ugwq0")]
 position = Vector2(184, -1475)
+collision_layer = 4
 
 [connection signal="body_entered" from="BossTrigger" to="." method="_on_boss_trigger_body_entered"]

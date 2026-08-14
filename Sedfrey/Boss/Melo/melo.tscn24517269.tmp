@@ -12,12 +12,11 @@
 [ext_resource type="Script" uid="uid://pvl0vs45mou2" path="res://Sedfrey/Boss/Melo/StateMachine/Misc/misc.gd" id="6_y61ae"]
 [ext_resource type="Script" uid="uid://cchx4idpsjq5x" path="res://Sedfrey/Boss/Melo/StateMachine/Misc/waiting.gd" id="7_savvl"]
 [ext_resource type="Script" uid="uid://68hefw2ydv86" path="res://Sedfrey/Boss/Melo/StateMachine/Attacking/spin_attack.gd" id="8_8ucjt"]
+[ext_resource type="Script" uid="uid://bgwd7gfv0bys" path="res://Sedfrey/Boss/Melo/StateMachine/phases/phases.gd" id="8_w230t"]
 [ext_resource type="Script" uid="uid://celix6pmn3k2a" path="res://Sedfrey/Boss/Melo/StateMachine/Attacking/spawn_minions.gd" id="9_vr442"]
-[ext_resource type="Script" uid="uid://cauarph3fulld" path="res://Sedfrey/Boss/Melo/StateMachine/Attacking/mines_attack.gd" id="12_bl7wo"]
+[ext_resource type="Script" uid="uid://bb58vbpaidg4x" path="res://Sedfrey/Boss/Melo/StateMachine/phases/first_phase.gd" id="9_w230t"]
 [ext_resource type="Script" uid="uid://dys5p0ey5mff2" path="res://Sedfrey/Boss/Melo/StateMachine/Misc/reposition.gd" id="12_uvrln"]
-[ext_resource type="Script" uid="uid://bpoo7by2ren6l" path="res://Sedfrey/Boss/Melo/StateMachine/Phases/first_phase.gd" id="16_bl7wo"]
-[ext_resource type="Script" uid="uid://t6724hdn22e2" path="res://Sedfrey/Boss/Melo/StateMachine/Phases/second_phase.gd" id="17_l23hi"]
-[ext_resource type="Script" uid="uid://ctx6dvk3x21qc" path="res://Sedfrey/Boss/Melo/StateMachine/Phases/phase.gd" id="18_l23hi"]
+[ext_resource type="Script" uid="uid://dtlcgriuqhhel" path="res://Sedfrey/Boss/Melo/StateMachine/phases/second_phase.gd" id="15_bl7wo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvaeg"]
 atlas = ExtResource("2_u2yt5")
@@ -43,15 +42,13 @@ collision_layer = 8
 script = ExtResource("1_p34l2")
 
 [node name="HealthComponent" parent="." unique_id=83070045 instance=ExtResource("2_bl7wo")]
-max_health = 10.0
+max_health = 100.0
 
 [node name="Muzzle" type="Node2D" parent="." unique_id=874320338]
 script = ExtResource("2_vr442")
 bullet_scene = ExtResource("3_3gytw")
 bullet_data = ExtResource("4_uvrln")
 metadata/_custom_type_script = "uid://y8q3j3ca08c6"
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Muzzle" unique_id=1440871594]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1885488704]
 scale = Vector2(0.1, 0.1)
@@ -62,36 +59,24 @@ shape = SubResource("CapsuleShape2D_vr442")
 
 [node name="StateMachine" type="Node" parent="." unique_id=758700163 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_n5n24")
-initial_state = NodePath("Misc/Waiting")
+initial_state = NodePath("Attacking")
 metadata/_custom_type_script = "uid://4nyspy7qwdp"
 
-[node name="Attacking" type="Node" parent="StateMachine" unique_id=844401599 node_paths=PackedStringArray("phase_state", "melo")]
+[node name="Attacking" type="Node" parent="StateMachine" unique_id=844401599 node_paths=PackedStringArray("normal_attack", "spin_attack", "spawn_minions")]
 script = ExtResource("4_ptlxa")
-phase_state = NodePath("../Phase")
-melo = NodePath("../..")
+normal_attack = NodePath("NormalAttack")
+spin_attack = NodePath("SpinAttack")
+spawn_minions = NodePath("SpawnMinions")
 metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
-[node name="NormalAttack" type="Node" parent="StateMachine/Attacking" unique_id=1830674409 node_paths=PackedStringArray("attacking", "phase_state", "muzzle", "melo")]
+[node name="NormalAttack" type="Node" parent="StateMachine/Attacking" unique_id=1830674409]
 script = ExtResource("5_4ar15")
-attacking = NodePath("..")
-phase_state = NodePath("../../Phase")
-muzzle = NodePath("../../../Muzzle")
-melo = NodePath("../../..")
+shooting_speed = 1.0
+attack_timer = 5.0
 metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
-[node name="SpinAttack" type="Node" parent="StateMachine/Attacking" unique_id=1697298806 node_paths=PackedStringArray("attacking", "phase_state", "muzzle", "melo")]
+[node name="SpinAttack" type="Node" parent="StateMachine/Attacking" unique_id=1697298806]
 script = ExtResource("8_8ucjt")
-spin_speed = 40.0
-attacking = NodePath("..")
-phase_state = NodePath("../../Phase")
-muzzle = NodePath("../../../Muzzle")
-melo = NodePath("../../..")
-metadata/_custom_type_script = "uid://vruhpn0vpa2e"
-
-[node name="MinesAttack" type="Node" parent="StateMachine/Attacking" unique_id=787489402 node_paths=PackedStringArray("muzzle")]
-script = ExtResource("12_bl7wo")
-num_mines = 10
-muzzle = NodePath("../../../Muzzle")
 metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
 [node name="SpawnMinions" type="Node" parent="StateMachine/Attacking" unique_id=1981031367]
@@ -102,28 +87,22 @@ metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 script = ExtResource("6_y61ae")
 metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
-[node name="Waiting" type="Node" parent="StateMachine/Misc" unique_id=1143707280 node_paths=PackedStringArray("first_phase")]
+[node name="Waiting" type="Node" parent="StateMachine/Misc" unique_id=1143707280]
 script = ExtResource("7_savvl")
-first_phase = NodePath("../../Phase/FirstPhase")
 metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
 [node name="Reposition" type="Node" parent="StateMachine/Misc" unique_id=1218258458]
 script = ExtResource("12_uvrln")
 metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
-[node name="Phase" type="Node" parent="StateMachine" unique_id=1226367340 node_paths=PackedStringArray("root")]
-script = ExtResource("18_l23hi")
-root = NodePath("../..")
+[node name="Phases" type="Node" parent="StateMachine" unique_id=862039376]
+script = ExtResource("8_w230t")
 metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
-[node name="FirstPhase" type="Node" parent="StateMachine/Phase" unique_id=1962235325 node_paths=PackedStringArray("root", "attacking")]
-script = ExtResource("16_bl7wo")
-root = NodePath("../../..")
-attacking = NodePath("../../Attacking")
-metadata/_custom_type_script = "uid://ctx6dvk3x21qc"
+[node name="FirstPhase" type="Node" parent="StateMachine/Phases" unique_id=95615707]
+script = ExtResource("9_w230t")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
 
-[node name="SecondPhase" type="Node" parent="StateMachine/Phase" unique_id=620481666 node_paths=PackedStringArray("root", "attacking")]
-script = ExtResource("17_l23hi")
-root = NodePath("../../..")
-attacking = NodePath("../../Attacking")
-metadata/_custom_type_script = "uid://ctx6dvk3x21qc"
+[node name="SecondPhase" type="Node" parent="StateMachine/Phases" unique_id=191925830]
+script = ExtResource("15_bl7wo")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
