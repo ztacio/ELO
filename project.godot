@@ -15,14 +15,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="ELO COMP4299"
-run/main_scene="uid://1t40170xep1g"
+run/main_scene="uid://btnwcoshqyq3m"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-SceneManager="*uid://bgpqa570nr6m2"
-Stage="*uid://bcrjmdqk1cv6m"
 
 [input]
 
@@ -46,19 +41,6 @@ move_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
-dodge={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
-
-[layer_names]
-
-2d_physics/layer_1="ENVIRONMENT"
-2d_physics/layer_2="BULLET"
-2d_physics/layer_3="PLAYER"
-2d_physics/layer_4="BOSS"
-2d_physics/layer_5="INTERACTABLE"
 
 [rendering]
 

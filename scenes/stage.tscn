@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://jwlk7gewjoag" path="res://resources/depression_stage_png.png" id="1_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://dyeve2eak7pwa" path="res://scenes/player.tscn" id="1_8rem4"]
-[ext_resource type="Script" uid="uid://bcrjmdqk1cv6m" path="res://scenes/stage.gd" id="1_ddp0b"]
 [ext_resource type="PackedScene" uid="uid://c3icbupkfyw84" path="res://scenes/tear_bullet.tscn" id="2_gi7kc"]
 [ext_resource type="Script" uid="uid://chcaajjrdt143" path="res://scenes/stage_timer.gd" id="2_vcsse"]
 [ext_resource type="PackedScene" uid="uid://cy3jee2tyot5c" path="res://scenes/depression_boss.tscn" id="3_kewym"]
@@ -4411,7 +4410,6 @@ size = Vector2(174, 153)
 
 [node name="Stage" type="Node2D" unique_id=285106437]
 y_sort_enabled = true
-script = ExtResource("1_ddp0b")
 
 [node name="player" parent="." unique_id=2024073298 instance=ExtResource("1_8rem4")]
 position = Vector2(71, 932)
