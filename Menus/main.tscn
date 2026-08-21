@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://qdd4g001l58r"]
+
+[ext_resource type="Script" uid="uid://350meb661wmh" path="res://Menus/main.gd" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://iyb1sxmd5sw3" path="res://Sedfrey/Managers/level_manager.gd" id="2_8gbba"]
+
+[node name="Main" type="Node2D" unique_id=195889870]
+script = ExtResource("1_bo1nx")
+
+[node name="LevelManager" type="Node" parent="." unique_id=1793201962]
+script = ExtResource("2_8gbba")
