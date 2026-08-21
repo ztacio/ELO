@@ -15,14 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="ELO COMP4299"
-run/main_scene="uid://1t40170xep1g"
+run/main_scene="uid://b7ier6er0gpm8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+Stage="*res://scenes/stage.gd"
 SceneManager="*uid://bgpqa570nr6m2"
-Stage="*uid://bcrjmdqk1cv6m"
 
 [input]
 
@@ -63,4 +63,5 @@ dodge={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.07450981, 0.08627451, 0.15686275, 1)
 renderer/canvas_textures/default_texture_filter=0
