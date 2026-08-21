@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*uid://bgpqa570nr6m2"
-Stage="*uid://bcrjmdqk1cv6m"
+Stage="*uid://btnwcoshqyq3m"
 
 [input]
 
