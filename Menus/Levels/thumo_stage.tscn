@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dhpqstprjhcw8"]
-
-[node name="Thumo" type="Node2D" unique_id=1905292646]
-
-[node name="Label" type="Label" parent="." unique_id=1792933051]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Thumo"
