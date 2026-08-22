@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dg3cvlnnffxxd" path="res://craftpix-net-169442-free-2d-top-down-pixel-dungeon-asset-pack.png/craftpix-net-189780-free-top-down-pixel-art-guild-hall-asset-pack 2/PNG/Walls_interior.png" id="11_nea6r"]
 [ext_resource type="Texture2D" uid="uid://ci07k47oqo7d6" path="res://craftpix-net-169442-free-2d-top-down-pixel-dungeon-asset-pack.png/PNG/Objects.png" id="12_5sts7"]
 [ext_resource type="Texture2D" uid="uid://dnbaukggeeu43" path="res://craftpix-net-169442-free-2d-top-down-pixel-dungeon-asset-pack.png/PNG/fire_animation.png" id="13_ddp0b"]
+[ext_resource type="AudioStream" uid="uid://c7vlkq5l1fx7j" path="res://Hosanna/Beep bop 2.mp3" id="17_t30jk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drh8o"]
 texture = ExtResource("4_e38vs")
@@ -4496,6 +4497,11 @@ shape = SubResource("RectangleShape2D_2so7o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="depression_stage/Area2D" unique_id=1249709021]
 color = Color(0.6555468, 0.7937689, 0.91946954, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1470718162]
+stream = ExtResource("17_t30jk")
+volume_db = -30.4
+autoplay = true
 
 [connection signal="timeout" from="depression_stage/Area2D/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="depression_stage/Area2D/Timer" to="depression_stage/Area2D/depression_boss" method="_on_timer_timeout"]
