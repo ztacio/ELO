@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy3jee2tyot5c" path="res://scenes/depression_boss.tscn" id="3_kewym"]
 [ext_resource type="TileSet" uid="uid://2dgh1or6nhvd" path="res://tile_set_1.tres" id="3_vcsse"]
 [ext_resource type="PackedScene" uid="uid://b1s74roulx5nr" path="res://Sedfrey/Boss/Melo/melo.tscn" id="4_2so7o"]
+[ext_resource type="AudioStream" path="res://Hosanna/Beep bop 2.mp3" id="17_t30jk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2so7o"]
 size = Vector2(174, 153)
@@ -68,6 +69,11 @@ script = ExtResource("2_vcsse")
 position = Vector2(15.400002, -15.000001)
 scale = Vector2(0.20000002, 0.20000002)
 shape = SubResource("RectangleShape2D_2so7o")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1263581907]
+stream = ExtResource("17_t30jk")
+volume_db = -30.4
+autoplay = true
 
 [connection signal="timeout" from="depression_stage/Area2D/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="depression_stage/Area2D/Timer" to="depression_stage/Area2D/depression_boss" method="_on_timer_timeout"]
