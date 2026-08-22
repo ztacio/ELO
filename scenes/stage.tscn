@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3icbupkfyw84" path="res://scenes/tear_bullet.tscn" id="2_gi7kc"]
 [ext_resource type="Script" uid="uid://chcaajjrdt143" path="res://scenes/stage_timer.gd" id="2_vcsse"]
 [ext_resource type="PackedScene" uid="uid://cy3jee2tyot5c" path="res://scenes/depression_boss.tscn" id="3_kewym"]
-[ext_resource type="TileSet" path="res://tile_set_1.tres" id="3_vcsse"]
+[ext_resource type="TileSet" uid="uid://2dgh1or6nhvd" path="res://tile_set_1.tres" id="3_vcsse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2so7o"]
 size = Vector2(174, 153)
