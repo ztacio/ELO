@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7vlkq5l1fx7j"
+path="res://.godot/imported/Beep bop 2.mp3-115f2bcec29192bcc1079d433c2f1a59.mp3str"
+
+[deps]
+
+source_file="res://Hosanna/Beep bop 2.mp3"
+dest_files=["res://.godot/imported/Beep bop 2.mp3-115f2bcec29192bcc1079d433c2f1a59.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
