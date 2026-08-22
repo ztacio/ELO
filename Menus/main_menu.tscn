@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b7ier6er0gpm8"]
+
+[ext_resource type="Script" uid="uid://bw7ngtqbwc8ux" path="res://Menus/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Node2D" unique_id=147436175]
+script = ExtResource("1_28flt")
+
+[node name="Label" type="Label" parent="." unique_id=53541272]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Main Menu"
+
+[node name="Play" type="Button" parent="." unique_id=1298703763]
+offset_left = 240.0
+offset_top = 455.0
+offset_right = 281.0
+offset_bottom = 486.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="." unique_id=1272060794]
+offset_left = 800.0
+offset_top = 455.0
+offset_right = 842.0
+offset_bottom = 486.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

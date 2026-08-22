@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://b1s74roulx5nr"]
+
+[ext_resource type="Script" uid="uid://cv2ixc50pk3dg" path="res://Sedfrey/Boss/Melo/melo.gd" id="1_p34l2"]
+[ext_resource type="PackedScene" uid="uid://cfall58ts7lbx" path="res://Sedfrey/Components/health_component.tscn" id="2_bl7wo"]
+[ext_resource type="Texture2D" uid="uid://152xowlr1xvu" path="res://resources/depression_boss.png" id="2_u2yt5"]
+[ext_resource type="Script" uid="uid://y8q3j3ca08c6" path="res://Sedfrey/Components/muzzle.gd" id="2_vr442"]
+[ext_resource type="PackedScene" uid="uid://dawl2rdggelw1" path="res://Sedfrey/Bullets/bullet.tscn" id="3_3gytw"]
+[ext_resource type="Script" uid="uid://bkw5chg8y6yi2" path="res://Sedfrey/Boss/Melo/StateMachine/state_machine.gd" id="3_n5n24"]
+[ext_resource type="Script" uid="uid://wxd8bp62hq0q" path="res://Sedfrey/Boss/Melo/StateMachine/Attacking/attacking.gd" id="4_ptlxa"]
+[ext_resource type="Resource" uid="uid://b2jsbqbs28tt2" path="res://Sedfrey/Bullets/bullet_data.tres" id="4_uvrln"]
+[ext_resource type="Script" uid="uid://dwxhfjqjb2dr3" path="res://Sedfrey/Boss/Melo/StateMachine/Attacking/normal_attack.gd" id="5_4ar15"]
+[ext_resource type="Script" uid="uid://pvl0vs45mou2" path="res://Sedfrey/Boss/Melo/StateMachine/Misc/misc.gd" id="6_y61ae"]
+[ext_resource type="Script" uid="uid://cchx4idpsjq5x" path="res://Sedfrey/Boss/Melo/StateMachine/Misc/waiting.gd" id="7_savvl"]
+[ext_resource type="Script" uid="uid://68hefw2ydv86" path="res://Sedfrey/Boss/Melo/StateMachine/Attacking/spin_attack.gd" id="8_8ucjt"]
+[ext_resource type="Script" uid="uid://bgwd7gfv0bys" path="res://Sedfrey/Boss/Melo/StateMachine/phases/phases.gd" id="8_w230t"]
+[ext_resource type="Script" uid="uid://celix6pmn3k2a" path="res://Sedfrey/Boss/Melo/StateMachine/Attacking/spawn_minions.gd" id="9_vr442"]
+[ext_resource type="Script" uid="uid://bb58vbpaidg4x" path="res://Sedfrey/Boss/Melo/StateMachine/phases/first_phase.gd" id="9_w230t"]
+[ext_resource type="Script" uid="uid://dys5p0ey5mff2" path="res://Sedfrey/Boss/Melo/StateMachine/Misc/reposition.gd" id="12_uvrln"]
+[ext_resource type="Script" uid="uid://dtlcgriuqhhel" path="res://Sedfrey/Boss/Melo/StateMachine/phases/second_phase.gd" id="15_bl7wo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvaeg"]
+atlas = ExtResource("2_u2yt5")
+region = Rect2(0, 0, 1080, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xs28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvaeg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vr442"]
+radius = 35.0
+height = 100.0
+
+[node name="Melo" type="CharacterBody2D" unique_id=1057215264]
+collision_layer = 8
+script = ExtResource("1_p34l2")
+
+[node name="HealthComponent" parent="." unique_id=83070045 instance=ExtResource("2_bl7wo")]
+max_health = 100.0
+
+[node name="Muzzle" type="Node2D" parent="." unique_id=874320338]
+script = ExtResource("2_vr442")
+bullet_scene = ExtResource("3_3gytw")
+bullet_data = ExtResource("4_uvrln")
+metadata/_custom_type_script = "uid://y8q3j3ca08c6"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1885488704]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_2xs28")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=1897081125]
+shape = SubResource("CapsuleShape2D_vr442")
+
+[node name="StateMachine" type="Node" parent="." unique_id=758700163 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_n5n24")
+initial_state = NodePath("Attacking")
+metadata/_custom_type_script = "uid://4nyspy7qwdp"
+
+[node name="Attacking" type="Node" parent="StateMachine" unique_id=844401599 node_paths=PackedStringArray("normal_attack", "spin_attack", "spawn_minions")]
+script = ExtResource("4_ptlxa")
+normal_attack = NodePath("NormalAttack")
+spin_attack = NodePath("SpinAttack")
+spawn_minions = NodePath("SpawnMinions")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="NormalAttack" type="Node" parent="StateMachine/Attacking" unique_id=1830674409]
+script = ExtResource("5_4ar15")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="SpinAttack" type="Node" parent="StateMachine/Attacking" unique_id=1697298806]
+script = ExtResource("8_8ucjt")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="SpawnMinions" type="Node" parent="StateMachine/Attacking" unique_id=1981031367]
+script = ExtResource("9_vr442")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="Misc" type="Node" parent="StateMachine" unique_id=366268612]
+script = ExtResource("6_y61ae")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="Waiting" type="Node" parent="StateMachine/Misc" unique_id=1143707280]
+script = ExtResource("7_savvl")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="Reposition" type="Node" parent="StateMachine/Misc" unique_id=1218258458]
+script = ExtResource("12_uvrln")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="Phases" type="Node" parent="StateMachine" unique_id=862039376]
+script = ExtResource("8_w230t")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="FirstPhase" type="Node" parent="StateMachine/Phases" unique_id=95615707]
+script = ExtResource("9_w230t")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="SecondPhase" type="Node" parent="StateMachine/Phases" unique_id=191925830]
+script = ExtResource("15_bl7wo")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
