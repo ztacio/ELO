@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://chcaajjrdt143" path="res://scenes/stage_timer.gd" id="2_vcsse"]
 [ext_resource type="PackedScene" uid="uid://cy3jee2tyot5c" path="res://scenes/depression_boss.tscn" id="3_kewym"]
 [ext_resource type="TileSet" uid="uid://2dgh1or6nhvd" path="res://tile_set_1.tres" id="3_vcsse"]
+[ext_resource type="PackedScene" uid="uid://b1s74roulx5nr" path="res://Sedfrey/Boss/Melo/melo.tscn" id="4_2so7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2so7o"]
 size = Vector2(174, 153)
@@ -49,7 +50,12 @@ color = Color(0.6555468, 0.7937689, 0.91946954, 1)
 [node name="Area2D" type="Area2D" parent="depression_stage" unique_id=608839361]
 scale = Vector2(4.9999995, 4.9999995)
 
+[node name="Melo" parent="depression_stage/Area2D" unique_id=1057215264 instance=ExtResource("4_2so7o")]
+position = Vector2(17.000002, -192.20001)
+scale = Vector2(0.20000002, 0.20000002)
+
 [node name="depression_boss" parent="depression_stage/Area2D" unique_id=1494247430 instance=ExtResource("3_kewym")]
+visible = false
 position = Vector2(21.400026, -195.60011)
 scale = Vector2(0.020000001, 0.020000001)
 

@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bfw0n3601tl24" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bps8eg1lou74l" path="res://resources/Improved Elo Character Framesheet.png" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://cfall58ts7lbx" path="res://Sedfrey/Components/health_component.tscn" id="3_ur7pv"]
+[ext_resource type="Script" uid="uid://bsqkx0gxb4x0b" path="res://Sedfrey/Player/StateMachine/state_machine.gd" id="4_y4r1p"]
+[ext_resource type="Script" uid="uid://c6kas8kwbcmo0" path="res://Sedfrey/Player/StateMachine/States/walking.gd" id="5_d2wvv"]
+[ext_resource type="Script" uid="uid://xhqvrd57c371" path="res://Sedfrey/Player/StateMachine/States/dodging.gd" id="6_3v2ag"]
+[ext_resource type="Script" uid="uid://dqvofnexo3ahc" path="res://Sedfrey/Player/StateMachine/States/take_damage.gd" id="7_jej6c"]
+[ext_resource type="Script" uid="uid://dasarfo1cec1w" path="res://Sedfrey/Player/StateMachine/States/waiting.gd" id="8_f1ej7"]
+[ext_resource type="Script" uid="uid://c4itq4oeedgp2" path="res://Sedfrey/Player/StateMachine/States/idle.gd" id="9_oprun"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -153,6 +160,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 6.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
+radius = 6.0
+
 [node name="player" type="CharacterBody2D" unique_id=1263031042]
 scale = Vector2(3, 3)
 script = ExtResource("1_g2els")
@@ -169,3 +179,45 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=69449003]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=852532786]
+position = Vector2(0, 0.6666667)
+shape = SubResource("CircleShape2D_ur7pv")
+
+[node name="HealthComponent" parent="." unique_id=83070045 instance=ExtResource("3_ur7pv")]
+health_bar_offset = Vector2(0, 20)
+max_health = 10.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=736968528 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_y4r1p")
+initial_state = NodePath("Walking")
+metadata/_custom_type_script = "uid://4nyspy7qwdp"
+
+[node name="Walking" type="Node" parent="StateMachine" unique_id=1436915716 node_paths=PackedStringArray("idle")]
+script = ExtResource("5_d2wvv")
+idle = NodePath("../Idle")
+speed = 100.0
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="Dodging" type="Node" parent="StateMachine" unique_id=1544406695 node_paths=PackedStringArray("idle")]
+script = ExtResource("6_3v2ag")
+idle = NodePath("../Idle")
+dodge_distance = 30.0
+speed = 1.0
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="TakeDamage" type="Node" parent="StateMachine" unique_id=1783520944 node_paths=PackedStringArray("idle")]
+script = ExtResource("7_jej6c")
+idle = NodePath("../Idle")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="Waiting" type="Node" parent="StateMachine" unique_id=327269863]
+script = ExtResource("8_f1ej7")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=360571963 node_paths=PackedStringArray("walking", "dodging", "take_damage")]
+script = ExtResource("9_oprun")
+walking = NodePath("../Walking")
+dodging = NodePath("../Dodging")
+take_damage = NodePath("../TakeDamage")
+metadata/_custom_type_script = "uid://vruhpn0vpa2e"
