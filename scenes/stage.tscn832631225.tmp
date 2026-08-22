@@ -1,5 +1,6 @@
-[gd_scene format=4 uid="uid://btnwcoshqyq3m"]
+[gd_scene format=3 uid="uid://btnwcoshqyq3m"]
 
+[ext_resource type="Texture2D" uid="uid://jwlk7gewjoag" path="res://resources/depression_stage_png.png" id="1_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://dyeve2eak7pwa" path="res://scenes/player.tscn" id="1_8rem4"]
 [ext_resource type="PackedScene" uid="uid://c3icbupkfyw84" path="res://scenes/tear_bullet.tscn" id="2_gi7kc"]
 [ext_resource type="Script" uid="uid://chcaajjrdt143" path="res://scenes/stage_timer.gd" id="2_vcsse"]
@@ -22,7 +23,6 @@ position = Vector2(71, 932)
 
 [node name="tear_bullet" parent="." unique_id=2081860566 instance=ExtResource("2_gi7kc")]
 position = Vector2(151, 447.00003)
-range = 1600
 
 [node name="depression_stage" type="Node2D" parent="." unique_id=990208556]
 
