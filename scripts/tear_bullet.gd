@@ -1,17 +1,16 @@
 extends Area2D
 
 var travelled_distance = 0
-@export var speed: int
-@export var range: int
-# @onready var player = $"../player"
 
 func _physics_process(delta: float) -> void:
+	const SPEED = 1400
+	const RANGE = 1600
 	
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * speed * delta
+	position += direction * SPEED * delta
 	
-	travelled_distance += speed * delta
-	if travelled_distance > range:
+	travelled_distance += SPEED * delta
+	if travelled_distance > RANGE:
 		queue_free()
 
 

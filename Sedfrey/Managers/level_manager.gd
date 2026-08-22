@@ -4,8 +4,6 @@ const SCENES = {
 	"melo": preload("res://scenes/stage.tscn")
 }
 
-#res://Sedfrey/Boss/Melo/Map/melo_stage.tscn
-#res://scenes/stage.tscn
 var curr_scene: Node2D
 
 func _ready() -> void:

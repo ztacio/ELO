@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c3icbupkfyw84"]
+[gd_scene load_steps=4 format=3 uid="uid://c3icbupkfyw84"]
 
 [ext_resource type="Texture2D" uid="uid://bnmgii2uxeiqj" path="res://resources/tear_bullets.png" id="1_er8uy"]
 [ext_resource type="Script" uid="uid://6jhbq02nfqop" path="res://scripts/tear_bullet.gd" id="1_hlmy4"]
@@ -7,23 +7,21 @@
 radius = 26.665195
 height = 79.99559
 
-[node name="tear_bullet" type="Area2D" unique_id=1862264613]
+[node name="tear_bullet" type="Area2D"]
 top_level = true
+position = Vector2(1.9073486e-06, -2.060574e-13)
 rotation = -0.010502696
 scale = Vector2(0.3, 0.3)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_hlmy4")
-speed = 1500
-range = 10000
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=11525242]
-position = Vector2(36.349567, 30.38344)
-scale = Vector2(0.9163698, 0.94514316)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.647674e-13, 6.3578286e-06)
 texture = ExtResource("1_er8uy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1181314876]
-position = Vector2(2.3841858e-07, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-46.31401, -33.82161)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_hlmy4")
 
